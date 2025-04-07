@@ -9,29 +9,29 @@ function Appointments() {
 
   // Fetch data on load
   useEffect(() => {
-    fetch('http://localhost:5000/api/appointments')
+    fetch('https://hospital-api-med5.onrender.com/api/appointments')
       .then(res => res.json())
       .then(data => setAppointments(data));
 
-    fetch('http://localhost:5000/api/patients')
+    fetch('https://hospital-api-med5.onrender.com/api/patients')
       .then(res => res.json())
       .then(data => setPatients(data));
 
-    fetch('http://localhost:5000/api/doctors')
+    fetch('https://hospital-api-med5.onrender.com/api/doctors')
       .then(res => res.json())
       .then(data => setDoctors(data));
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:5000/api/appointments', {
+    fetch('https://hospital-api-med5.onrender.com/api/appointments', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     })
       .then(res => res.json())
       .then(() => {
-        fetch('http://localhost:5000/api/appointments')
+        fetch('https://hospital-api-med5.onrender.com/api/appointments')
           .then(res => res.json())
           .then(data => {
             alert("Appointment added successfully");
@@ -59,7 +59,7 @@ function Appointments() {
    // Delete appointments
    const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this appointments?")) {
-      fetch(`http://localhost:5000/api/appointments/${id}`, {
+      fetch(`https://hospital-api-med5.onrender.com/api/appointments/${id}`, {
         method: "DELETE",
       }).then((res) => {
         if (res.ok) {

@@ -13,14 +13,14 @@ function Dashboard() {
 
   // Fetch stats
   const fetchStats = () => {
-    fetch('http://localhost:5000/api/stats')
+    fetch('https://hospital-api-med5.onrender.com/api/stats')
       .then(res => res.json())
       .then(data => setStats(data));
   };
 
   // Fetch list (based on tab)
   const fetchList = (type) => {
-    fetch(`http://localhost:5000/api/${type}`)
+    fetch(`https://hospital-api-med5.onrender.com/api/${type}`)
       .then(res => res.json())
       .then(data => setList(data));
   };
@@ -30,12 +30,12 @@ function Dashboard() {
     fetchStats();
 
     // Doctors
-    fetch('http://localhost:5000/api/doctors')
+    fetch('https://hospital-api-med5.onrender.com/api/doctors')
       .then(res => res.json())
       .then(data => setDoctors(data));
 
     // Patients
-    fetch('http://localhost:5000/api/patients')
+    fetch('https://hospital-api-med5.onrender.com/api/patients')
       .then(res => res.json())
       .then(data => setPatients(data));
   }, []);

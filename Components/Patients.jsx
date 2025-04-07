@@ -10,7 +10,7 @@ function Patients() {
   }, []);
 
   const fetchPatients = () => {
-    fetch('http://localhost:5000/api/patients')
+    fetch('https://hospital-api-med5.onrender.com/api/patients')
       .then(res => res.json())
       .then(data => setPatients(data))
       .catch(err => console.error("Fetch error:", err));
@@ -23,7 +23,7 @@ function Patients() {
       return;
     }
 
-    fetch('http://localhost:5000/api/patients', {
+    fetch('https://hospital-api-med5.onrender.com/api/patients', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
@@ -39,7 +39,7 @@ function Patients() {
   const handleDelete = (id) => {
     if (!window.confirm("Are you sure you want to delete this patient?")) return;
   
-    fetch(`http://localhost:5000/api/patients/${id}`, {
+    fetch(`https://hospital-api-med5.onrender.com/api/patients/${id}`, {
       method: "DELETE",
     })
       .then((res) => {

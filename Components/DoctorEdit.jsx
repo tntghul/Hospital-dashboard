@@ -8,7 +8,7 @@ function DoctorEdit() {
 
   // Fetch doctor data on mount
   useEffect(() => {
-    fetch(`http://localhost:5000/api/doctors/${id}`)
+    fetch(`https://hospital-api-med5.onrender.com/api/doctors/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {
@@ -27,7 +27,7 @@ function DoctorEdit() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/api/doctors/${id}`, {
+    fetch(`https://hospital-api-med5.onrender.com/api/doctors/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

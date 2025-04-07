@@ -7,7 +7,7 @@ function Doctors() {
 
   // Fetch doctors
   useEffect(() => {
-    fetch("http://localhost:5000/api/doctors")
+    fetch("https://hospital-api-med5.onrender.com/api/doctors")
       .then((res) => res.json())
       .then((data) => setDoctors(data));
   }, []);
@@ -15,7 +15,7 @@ function Doctors() {
   // Add doctor
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/api/doctors", {
+    fetch("https://hospital-api-med5.onrender.com/api/doctors", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -31,7 +31,7 @@ function Doctors() {
   // Delete doctor
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this doctor?")) {
-      fetch(`http://localhost:5000/api/doctors/${id}`, {
+      fetch(`https://hospital-api-med5.onrender.com/api/doctors/${id}`, {
         method: "DELETE",
       }).then((res) => {
         if (res.ok) {

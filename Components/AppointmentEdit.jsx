@@ -10,7 +10,7 @@ function AppointmentEdit() {
 
   useEffect(() => {
     // Fetch appointment data
-    fetch(`http://localhost:5000/api/appointments/${id}`)
+    fetch(`https://hospital-api-med5.onrender.com/api/appointments/${id}`)
     .then(res => {
       if (!res.ok) {
         throw new Error('Appointment not found');
@@ -25,18 +25,18 @@ function AppointmentEdit() {
     });
 
     // Fetch patient and doctor lists
-    fetch('http://localhost:5000/api/patients')
+    fetch('https://hospital-api-med5.onrender.com/api/patients')
       .then(res => res.json())
       .then(data => setPatients(data));
 
-    fetch('http://localhost:5000/api/doctors')
+    fetch('https://hospital-api-med5.onrender.com/api/doctors')
       .then(res => res.json())
       .then(data => setDoctors(data));
   }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/api/appointments/${id}`, {
+    fetch(`https://hospital-api-med5.onrender.com/api/appointments/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),

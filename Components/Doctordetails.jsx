@@ -6,7 +6,7 @@ function Doctordetails() {
   const [doctor, setDoctor] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/doctors/${id}`)
+    fetch(`https://hospital-api-med5.onrender.com/api/doctors/${id}`)
       .then(res => res.json())
       .then(data => setDoctor(data))
       .catch(err => console.error("Error fetching doctor details:", err));

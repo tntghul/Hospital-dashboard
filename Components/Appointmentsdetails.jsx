@@ -8,17 +8,17 @@ function Appointmentsdetails() {
   const [patients, setPatients] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/appointments/${id}`)
+    fetch(`https://hospital-api-med5.onrender.com/api/appointments/${id}`)
       .then(res => res.json())
       .then(data => setAppointment(data)) // ✅ Fixed
       .catch(err => console.error("Error fetching appointment:", err));
 
     // Also fetch patients and doctors
-    fetch('http://localhost:5000/api/doctors')
+    fetch('https://hospital-api-med5.onrender.com/api/doctors')
       .then(res => res.json())
       .then(data => setDoctors(data));
 
-    fetch('http://localhost:5000/api/patients')
+    fetch('https://hospital-api-med5.onrender.com/api/patients')
       .then(res => res.json())
       .then(data => setPatients(data));
   }, [id]);

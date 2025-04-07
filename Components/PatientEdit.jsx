@@ -7,7 +7,7 @@ function PatientEdit() {
   const [formData, setFormData] = useState({ name: "", age: "", gender: "" });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/patients/${id}`)
+    fetch(`https://hospital-api-med5.onrender.com/api/patients/${id}`)
       .then((res) => res.json())
       .then((data) => setFormData(data))
       .catch((err) => console.error("Fetch error:", err));
@@ -20,7 +20,7 @@ function PatientEdit() {
       return;
     }
 
-    fetch(`http://localhost:5000/api/patients/${id}`, {
+    fetch(`https://hospital-api-med5.onrender.com/api/patients/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
